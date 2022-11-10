@@ -1,0 +1,839 @@
+Build a Product Landing Page
+
+<style> 
+ 
+.container{
+display:grid;
+height:1fr;
+grid-template-areas: 
+"header"
+"header2"
+"content"
+"products"
+"footer";
+grid-template-rows:
+70px
+70px
+1000px
+250px
+80px;
+grid-template-columns:
+100%
+100% 
+100%
+100%
+100%;
+overflow:hidden;
+}
+ 
+.header{
+grid-area: header;
+width:100%;
+height: 70px;
+display:grid;
+grid-template-areas:
+"headerleft headerright";
+grid-template-columns:
+1fr 1fr;
+background:black;
+margin:-8 0 0 0;
+}
+ 
+.headerleft{
+grid-area: headerleft;
+width:155px;
+display:grid;
+grid-template-areas:
+"diamond FCC FCC"
+"diamond free Follow";
+grid-template-columns:
+55px 123px 80px;
+grid-template-rows:
+35px;
+35px;
+margin: 0 0 0 0;
+}
+ 
+.diamond{
+grid-area: diamond;
+width: 40px;
+height:40px;
+background:black;
+padding:6 0 0 3; 
+}
+ 
+.FCC{
+grid-area: FCC;
+width:  270px;
+height: 35px;
+background:black; 
+color:white;
+font-size: 22px;
+font-weight: bold; 
+padding: 7 0 0 0;
+}
+ 
+.free{
+grid-area: free;
+width: 120px;
+height: 35px;
+background:black;
+color: white; 
+ 
+}
+ 
+.Follow{
+background: green;
+width:60px;
+height:20px;
+border-radius:2px;
+margin:0 0 0 5;
+padding:2 2 0 0;
+font-size:15px;
+text-decoration:none;
+color:white;
+}
+ 
+.Followtext{
+background:lightgreen;
+padding: 2 0 0 5;
+margin: 0 10 0 4;
+font-size: 14px;
+border-radius:2px;
+}
+ 
+.headerright{
+display:grid;
+grid-template-areas:
+"Like View Sign Log";
+"diamond FCC";
+grid-template-columns: 70px 145px 120px 90px;
+Justify-content:right;
+margin:15 10 10 0; 
+color:white;
+}
+ 
+button{
+border-radius:5px;
+background:darkgray;
+color:white;   
+font-size:16px;
+}
+ 
+.Like{
+background-color: green;
+display:flex;
+justify-content:flex-end;
+width:60;
+border-radius:4px;
+display: flex;
+align-items: center;
+text-decoration:none;
+color:white;
+}
+ 
+.View{
+background-color: gray;
+width:135;
+border-radius:4px;
+display: flex;
+align-items: center;
+text-decoration:none;
+color:white;
+}
+ 
+.Sign{
+background-color: green;
+width:110;
+border-radius:4px;
+display: flex;
+align-items: center;
+text-decoration:none;
+color:white;
+}
+ 
+.Log{
+background-color:gray;
+border-radius:4px;
+display: flex;
+align-items: center;
+text-decoration:none;
+color:white;
+}
+ 
+ 
+.header2{
+grid-area: header2;
+width:100%;
+height: 70px;
+display:grid;
+grid-template-areas:
+"headerleft2 headerright2";
+grid-template-columns:
+1fr 1fr;
+background: #eee;
+}
+ 
+.headerleft2{
+grid-area: headerleft2;
+display:grid;
+grid-template-areas:
+"Trumpet Original";
+grid-template-columns: 
+55px 250px;
+padding:25 0 0 0;
+}
+ 
+.Trumpet{
+grid-area:Trumpet;
+Width:55px; 
+}
+ 
+.Original {
+grid-area:Original;
+Width:211px;
+font-size:26
+}
+ 
+.headerright2{
+grid-area: headerright2;
+display:grid;
+grid-template-areas: 
+"Features HowItWorks Pricing";
+grid-template-columns:
+30% 30% 30%;
+justify-content:right;
+padding:25 0 0 0;
+font-size:18px;
+}
+ 
+.Features{
+grid-area:Features;
+width:65px;
+justify-content:right;
+}
+ 
+.HowItWorks{
+grid-area: HowItWorks;
+width:100px;
+}
+ 
+.Pricing{
+grid-area:Pricing;
+width:45px;
+justify-content:right;
+}
+ 
+.content{
+grid-area:content;
+width:100%;
+height: 1300px;
+display:grid;
+grid-template-areas:
+"column1 column2 column3";
+grid-template-columns:
+auto 1000px auto;
+grid-template-rows:
+100%;
+background: #eee;
+}
+ 
+.column1{
+grid-area:column1;
+width:auto;
+background: #eee;
+}
+ 
+.column2{
+grid-area:column2;
+width:1000px;
+background: #eee;
+}
+ 
+.Handcrafted{
+text-align:center;
+font-size:30px;
+font-weight:bold;
+margin:20 0 0 0;
+}
+ 
+.Enter{  
+height:30px;  
+width:275px;  
+margin: 20 35%;
+}
+ 
+.GET{
+width:150;
+font-weight:bold;
+font-size:20px;
+height:30px;
+margin: 0 41%;
+}
+ 
+.Premium{
+font-size:30px;
+font-weight:bold;
+margin: 100 0 0 100;
+}
+ 
+.Fast{
+font-size:30px;
+font-weight:bold;
+margin: 0 0 0 100;
+}
+ 
+.Quality{
+font-size:30px;
+font-weight:bold;
+margin: 0 0 0 100;
+}
+.column3{
+grid-area:column3;
+width:auto;
+background: #eee;
+}
+ 
+.video{
+width: 550px;  
+height: 300px;  
+margin: 0 0 40 0;
+display: flex;
+justify-content: center;
+}
+ 
+.products{
+grid-area:products;
+width:100%;
+display:grid;
+grid-template-areas:
+"product1 product2 product3";
+grid-template-columns:
+300px 300px 300px;
+grid-template-rows: 
+300px 300px 300px;
+grid-gap:20px;
+justify-content:center;
+}
+ 
+.product1{
+grid-area:product1;
+width:300px;
+height:300px;
+background: #eee;
+border-style: solid;
+border-width: 1 1 1 1;
+border-color:black black black black;  
+text-align:center;
+} 
+ 
+.product2{
+grid-area:product2;
+width:300px;
+height:300px;
+background: #eee;
+border-style: solid;
+border-width: 1 1 1 1;
+border-color:black black black black;  
+text-align:center;
+}
+ 
+.product3{
+grid-area: product3;
+width:300px;
+height:300px;
+background: #eee;
+border-style: solid;
+border-width: 1 1 1 1;
+border-color:black black black black;  
+text-align:center;
+}
+ 
+figcaption{
+text-align:center;
+padding: 10 10 10 10;  
+}
+ 
+p{
+margin:-30 0 0 0;
+line-height: 1.5; 
+}
+ 
+button{
+background:orange;
+color: black;
+width:100px;
+height: 40px;
+font-size: 20;
+border-width: 0;
+border-radius: 0;
+padding: 0 5 0 5;
+margin: 20 0 0 0;
+}
+ 
+.footer{
+grid-area:footer;
+display:grid;
+width:100%;
+height: 80px;
+grid-template-areas: 
+"footercolumn1 footercolumn2 footercolumn3";
+grid-template-columns:
+auto 900px auto;
+grid-template-rows:
+80px;
+}
+ 
+.footercolumn1{
+grid-area: footercolumn1;
+width:auto;
+background: #eee;
+}
+ 
+.footercolumn2{  
+grid-area:footercolumn2;
+width:900px;
+display:grid;
+grid-template-areas:
+"footerlinks";
+grid-template-columns:
+260px;
+background: darkgray;
+justify-content:right;
+}
+ 
+.footercolumn3{
+grid-area:footercolumn3;
+width:auto;
+background:#eee;
+}
+ 
+.footerlinks{
+grid-area:footerlinks;
+width:260px;  
+display:grid;
+grid-template-areas:
+"privacy terms contact";
+grid-template-columns:
+80px 80px 80px;
+grid-template-rows:
+15px;
+justify-content: right;
+padding: 10 5 0 0;
+}
+ 
+privacy{
+grid-area:privacy;
+width: 80px;
+text-decoration:none;
+color:black;
+}
+ 
+terms{
+grid-area:terms;
+width: 80px;
+}
+ 
+contact{
+grid-area:contact;
+width: 80px;
+}
+ 
+copyright{
+grid-area:copyright;
+width:260px;  
+padding: 0 0 0 0;
+}
+ 
+ 
+ 
+@media (max-width: 1200px){
+.container{
+display:grid;
+grid-template-areas: 
+"header"
+"header2"
+"content"
+"products"
+"footer";
+grid-template-rows:
+70px
+150px
+1000px
+950px
+80px;
+grid-template-columns:
+100%
+100% 
+100%
+100%
+100%;
+  overflow:hidden;
+}
+ 
+ 
+.header2{
+grid-area: header2;
+width:100%;
+height:150px;
+display:grid;
+grid-template-areas:
+"headerleft2" 
+"headerright2";
+grid-template-rows:
+35px
+115px;
+grid-template-columns:
+100%;
+background: #eee;
+justify-content:center;
+}
+ 
+.headerleft2{
+grid-area: headerleft2;
+width:100%;
+display:grid;
+grid-template-areas:
+"Original";
+grid-template-columns: 
+100%;
+padding:25 0 0 0;
+text-align:center;
+}
+ 
+.Trumpet{
+grid-area:Trumpet;
+height:33px;
+Width:55px; 
+ 
+}
+ 
+.Original {
+grid-area:Original;
+height:33px;
+width:100%;
+}
+ 
+.headerright2{
+grid-area: headerright2;
+height:100px;
+display:grid;
+grid-template-areas: 
+"Features"
+"HowItWorks"
+"Pricing";
+grid-template-rows:
+30px 
+30px 
+30px;
+grid-template-columns:
+100%;
+padding:25 0 0 0;
+text-align:center;
+}
+ 
+ 
+ 
+.Features{
+grid-area:Features;
+width:100%;
+text-decoration:none;
+color:black;
+}
+ 
+.HowItWorks{
+grid-area: HowItWorks;
+width:100%;
+text-decoration:none;
+color:black;
+}
+ 
+.Pricing{
+grid-area:Pricing;
+width:100%;
+text-decoration:none;
+color:black;
+}
+ 
+.products{
+grid-area:products;
+width:100%;
+display:grid;
+grid-template-areas:
+"product1"
+"product2" 
+"product3";
+grid-template-columns:
+300px;
+grid-template-rows: 
+300px 300px 300px;
+grid-gap:20px;
+justify-content:center;
+}
+ 
+.product1{
+grid-area:product1;
+width:300px;
+height:300px;
+background: #eee;
+border-style: solid;
+border-width: 1 1 1 1;
+border-color:black black black black;  
+text-align:center;
+} 
+ 
+.product2{
+grid-area:product2;
+width:300px;
+height:300px;
+background: #eee;
+border-style: solid;
+border-width: 1 1 1 1;
+border-color:black black black black;  
+text-align:center;
+}
+ 
+.product3{
+grid-area: product3;
+width:300px;
+height:300px;
+background: #eee;
+border-style: solid;
+border-width: 1 1 1 1;
+border-color:black black black black;  
+text-align:center;
+}
+ 
+.content{
+grid-area:content;
+width:100%;
+height: 2000px;
+display:grid;
+grid-template-areas:
+"column2";
+grid-template-columns:
+100%;
+grid-template-rows:
+100%;
+background: #eee;
+}
+ 
+.column2{
+grid-area:column2;
+width:100%;
+background: #eee;
+justify-content:center;
+} 
+}
+ 
+.footer{
+grid-area:footer;
+display:grid;
+width:100%;
+height: 80px;
+grid-template-areas: 
+"footercolumn2";
+grid-template-columns:
+100%;
+grid-template-rows:
+80px;
+}
+ 
+.footercolumn2{  
+grid-area:footercolumn2;
+width:100%;
+display:grid;
+grid-template-areas:
+"footerlinks";
+grid-template-columns:
+260px;
+background: darkgray;
+justify-content:right;
+}
+ 
+.footerlinks{
+grid-area:footerlinks;
+width:260px;  
+display:grid;
+grid-template-areas:
+"privacy terms contact";
+grid-template-columns:
+80px 80px 80px;
+grid-template-rows:
+15px;
+justify-content: right;
+padding: 10 5 0 0;
+}
+ 
+.privacy{
+grid-area:privacy;
+width: 80px;
+text-decoration:none;
+color:black;
+}
+ 
+.terms{
+grid-area:terms;
+width: 80px;
+text-decoration:none;
+color:black;
+}
+ 
+.contact{
+grid-area:contact;
+width: 80px;
+text-decoration:none;
+color:black;
+}
+ 
+ 
+ 
+</style> 
+ 
+<section class="container"> 
+ 
+<section class="header">
+<section class="headerleft">  
+<section class="diamond"> <img class="diamond" src="https://logodix.com/logo/12112.png">
+</section>
+<section class="FCC"> FCC: Product Landing Page </section>  
+<a class="free" href="freeCodeCamp.org">freeCodeCamp.org
+</a>  
+ 
+<section class="Follow"> 
+<a href="https://codepen.io/Login?" class="Follow"> +Follow </a> 
+</section>
+</section>
+<section class="headerright"> 
+<a href="https://codepen.io/Like" class="Like"> <div style="padding: 0 15 0 0;"> Like </div> </a> 
+<a href="https://codepen.io/freeCodeCamp/pen/VPaoNP" class="View"> <div style="padding: 0 0 0 16;"> View in Editor</div> </a> 
+<a href="https://codepen.io/accounts/Signup/user/free"class="Sign"><div style="padding: 0 0 0 25;"> Sign Up </div> </a> 
+<a href="https://codepen.io/Login"class="Log"> <div style="padding: 0 0 0 25;"> LogIn </div> </a>
+</section>   
+</section> 
+ 
+<section class="Header2">
+<section class="headerleft2">
+<section class="Trumpet">   </section> 
+<section class="Original"> Original Trombones  </section>
+</section> 
+<section class="headerright2"> 
+<a href="" class="Features"> Features    </a> 
+<a href="" class="HowItWorks"> How it works </a> 
+<a href="" class="Pricing"> Pricing </a>  
+</section> 
+</section>    
+ 
+<section class="content">
+ 
+<section class="column1"> </section>  
+ 
+<section class="column2">
+<header class="Handcrafted">  Handcrafted, home-made masterpieces </header> 
+<form action="kentm3students@gmail.com">
+<input class="Enter"  type="text"; placeholder="Enter your email address";> 
+<button class="Get" type="submit"> GET STARTED </button>
+</form>
+<header class="Premium"> Premium Materials  </header> 
+<article style="margin:0 0 60 100;"> Our trombones use the shiniest brass which is sourced locally. This will increase the longevity of your purchase.</article> 
+<header class="Fast"> Fast Shipping  </header> 
+<article style="margin:0 0 60 100;"> We make sure you recieve your trombone as soon as we have finished making it. We also provide free returns if you are not satisfied. </article>
+<header class="Quality"> Quality Assurance </header> 
+<article style="margin:0 0 60 100;"> For every purchase you make, we will ensure there are no damages or faults and we will check and test the pitch of your instrument.</article> 
+<center> <embed class="video" src="https://www.youtube-nocookie.com/embed/y8Yv4pnO7qc?rel=0&amp;controls=0&amp;showinfo=0"> 
+</embed> </center>
+<section class="products">
+<section class="product1"> <figcaption style="background:lightgray;"> TENOR TROMBONE </figcaption> <h2> $600 </h2>  <p>  <br>Lorem ipsum. <br> 
+Lorem ipsum. <br>
+Lorem ipsum dolor. <br>3
+Lorem ipsum.<br> </p><button> <a style="text-decoration:none" href=""> Select </a> </button>  
+</section>  
+<section class="product2"><figcaption style="background:lightgray;"> BASS TROMBONE </figcaption> <h2> $900 </h2>  <p> <br>Lorem ipsum. <br> 
+Lorem ipsum. <br>
+Lorem ipsum dolor. <br>
+Lorem ipsum.<br> </p> <button><a style="text-decoration:none" href="">  Select </a> </button>
+</section>  
+<section class="product3"><figcaption style="background:lightgray;"> VALVE TROMBONE</figcaption> <h2> $1200 </h2><p> <br>Lorem ipsum. <br> 
+Lorem ipsum. <br>
+Lorem ipsum dolor. <br>
+Lorem ipsum.<br> </p><button> <a style="text-decoration:none" href="">  Select </a> </button>  
+</section>
+</section> 
+</section>
+ 
+<section class="column3"> </section>
+</section> 
+ 
+ 
+<section class="footer">
+<section class="footercolumn1"> </section> 
+<section class="footercolumn2"> 
+<section class="footerlinks">
+<a href="" class="privacy">  Privacy </a> 
+<a href="" class="terms"> Terms </a> 
+<a href="" class="contact"> Contact </a>   
+</section>  
+<section class="copyright"> Copyright 2016, Original Trombones </section> 
+</section> 
+<section class="footercolumn3"></section> 
+</section> 
+</section> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
